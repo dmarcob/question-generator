@@ -1,4 +1,4 @@
-# Test-generator
+# question-generator
 Script para generar cuestionarios de preguntas
 
 ### Requisitos
