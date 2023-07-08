@@ -1,13 +1,14 @@
-from app.domain.interactive_interface import InteractiveInterface
+from app.domain.user_interface import UserInterface
 import PySimpleGUI as sg
+from app.domain.question import Question
 
-class GUIInteractiveInterface(InteractiveInterface):
+class GUIInterface(UserInterface):
   sg.theme('SystemDefaultForReal')
 
-  def get_input(self, message:str):
+  def get_input(self, question:Question):
     # build full window
     window = sg.Window('Test', layout=[
-      [sg.Text(message)],
+      [sg.Text(question.text)],
       [sg.Text('', size=(15,1)), sg.InputText(key='-Answer-')],
       [sg.Button('send')]
     ])
