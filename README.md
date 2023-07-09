@@ -1,10 +1,11 @@
 # question-generator
-Script para generar cuestionarios de preguntas
+Script to practice with own made tests
 
-### Requisitos
+![diseño](design.png)
+### Requirements
 1. Python 3.10
 2. Pipenv
-3. Instalar dependencias `pipenv install --dev`
-4. Añadir los cuestionarios de los que quieres examinarte en `config.py`
-5. Ejecutar `pipenv run python main.py`
+3. Install dependencies `pipenv install --dev`
+4. Add own made tests in `app/infraestructure/tests/` in csv format <question, answer>
+5. Execute `pipenv run python main.py`
 

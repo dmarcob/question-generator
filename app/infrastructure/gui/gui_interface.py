@@ -3,6 +3,9 @@ import PySimpleGUI as sg
 from app.domain.question import Question
 
 class GUIInterface(UserInterface):
+
+  # TODO: Implement all UserInterface methods
+  """
   sg.theme('SystemDefaultForReal')
 
   def get_input(self, question:Question):
@@ -24,12 +27,21 @@ class GUIInterface(UserInterface):
       value = values["-Answer-"]
       return value
 
-  def show_message(self, message):
+  def show_valid_feedback(self):
     # build full window
     window = sg.Window('Test', layout=[
-      [sg.Text(message)],
+      [sg.Text("OK")],
     ])
     # wait until timeout
     window.read(timeout=900)
     window.close()
 
+  def show_invalid_feedback(self):
+    # build full window
+    window = sg.Window('Test', layout=[
+      [sg.Text("TRY AGAIN")],
+    ])
+    # wait until timeout
+    window.read(timeout=900)
+    window.close()
+  """

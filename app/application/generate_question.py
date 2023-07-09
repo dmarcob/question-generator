@@ -1,7 +1,15 @@
+import random
 from app.domain.question import Question
-from app.domain.question_repository import QuestionRepository
+from app.domain.test import Test
+from app.domain.test_repository import TestRepository
 
-def generate_question(test_name:str, respository: QuestionRepository) -> Question:
-  num_lines = respository.size(test_name)
+def generate_question_secuencial(test:Test, respository:TestRepository) -> Question:
+  num_lines = respository.num_questions(test)
   for line in range(1, num_lines + 1):
-    yield respository.read(test_name, line)
+    yield respository.read_question(test, line)
+
+def generate_question_random(test:Test, respository: TestRepository) -> Question:
+  num_lines = respository.num_questions(test)
+  for random_line in random.sample(range(1, num_lines + 1), num_lines):
+    # generate random questions without repetitions
+    yield respository.read_question(test, random_line)
