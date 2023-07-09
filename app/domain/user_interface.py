@@ -17,3 +17,6 @@ class UserInterface:
 
   def select_tests(self, tests: List[Test]) -> List[Test]:
     pass
+
+  def show_qualifications(self, tests: List[Test]):
+    pass

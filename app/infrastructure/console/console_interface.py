@@ -27,3 +27,8 @@ class ConsoleInterface(UserInterface):
         continue
       selected_tests.append(tests[int(index) - 1])
     return selected_tests
+
+  def show_results(self, tests: List[Test]):
+    print("\nTest results:")
+    for test in tests:
+      print(test.name + ": " + test.calculate_result())
