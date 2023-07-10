@@ -9,3 +9,5 @@ Script to practice with own made tests
 4. Add own made tests in `app/infraestructure/tests/` in csv format <question, answer>
 5. Execute `pipenv run python main.py`
 
+### Tests
+1. Execute `pipenv run pytest test/`
