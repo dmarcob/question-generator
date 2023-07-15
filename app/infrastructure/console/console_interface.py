@@ -31,4 +31,5 @@ class ConsoleInterface(UserInterface):
   def show_results(self, tests: List[Test]):
     print("\nTest results:")
     for test in tests:
-      print(test.name + ": " + test.calculate_result())
+      print(test.name + ": " + str(test.valid_percentage) + "% de aciertos")
+    print("\n")

@@ -34,7 +34,7 @@ class CSVQuestionRepository(TestRepository):
 
     path = os.path.join(self.csv_dir_path, test.name)
     with open(path, "r") as csv_file:
-      csv_reader = csv.reader(csv_file)
+      csv_reader = self.get_csv_reader(csv_file)
       return sum(1 for _ in csv_reader)
 
   def list_all_tests(self) -> List[Test]:
@@ -51,10 +51,13 @@ class CSVQuestionRepository(TestRepository):
 
   # ------------ Private
   def _get_row(self, csv_file, line_number):
-    csv_reader = csv.reader(csv_file)
+    csv_reader = self.get_csv_reader(csv_file)
     for _ in range(line_number - 1):
       next(csv_reader)
     return next(csv_reader)
+
+  def get_csv_reader(self, file):
+    return csv.reader(file, delimiter=";")
 
   def _valid_csv(self, test:Test) -> bool:
     extension = Path(test.name).suffix

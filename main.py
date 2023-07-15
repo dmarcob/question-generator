@@ -9,18 +9,19 @@ from app.application.show_results import show_results
 from app.domain.test_repository import TestRepository
 from app.domain.user_interface import UserInterface
 
-def main(user_interface: UserInterface, test_repository: TestRepository):
-  # user select tests from all available
-  selected_tests = select_tests(test_repository, user_interface)
-  for test in selected_tests:
-    # Generate questions and show to user
-    question_generator = generate_question_random(test, test_repository)
-    for question in question_generator:
-      # Wait user answer and check if valid
-      check_answer(test, question, user_interface)
 
-  # show results to user
-  show_results(selected_tests, user_interface)
+def main(user_interface: UserInterface, test_repository: TestRepository):
+  while True:
+    selected_tests = select_tests(test_repository, user_interface)
+
+    for test in selected_tests:
+      question_generator = generate_question_random(test, test_repository)
+
+      for question in question_generator:
+        check_answer(test, question, user_interface)
+
+    show_results(selected_tests, user_interface)
+
 
 if __name__ == '__main__':
   # Create ArgumentParser
@@ -34,8 +35,7 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   if args.ui:
-      #main(GUIInterface(), CSVQuestionRepository())
-      print("WARNING: GUI is not available yet, please try another option")
+    # main(GUIInterface(), CSVQuestionRepository())
+    print("WARNING: GUI is not available yet, please try another option")
   else:
     main(ConsoleInterface(), CSVQuestionRepository(args.tests))
-

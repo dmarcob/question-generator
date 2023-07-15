@@ -1,19 +1,18 @@
-tejado,roof
-chimenea,chimney
-entrada,porch
-garage,garage
-cesped,lawn
-canal,gutter
-atico,attic
-escalon,step
-alfeizar,window sill
-cornisa,cornice
-pabellon,canopy
-buhardilla,dormer window
-ventana,window
-aguilon,gable
-desague,drain pipe
-sotano,cellar
-persianas,blinds
-cobertizo,shed
-felpudo,doormat
+tejado;roof
+chimenea;chimney
+entrada;porch
+garage;garage
+cesped;lawn
+canal;gutter
+atico;attic
+escalon;step
+alfeizar;window sill
+cornisa;cornice
+buhardilla;dormer window
+ventana;window
+aguilon;gable
+desague;drain pipe
+sotano;cellar
+persianas;blinds
+cobertizo;shed
+felpudo;doormat

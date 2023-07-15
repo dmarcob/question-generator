@@ -4,14 +4,15 @@ class Test:
     self.name = name
     self.valid_answers = 0
     self.total_answers = 0
+    self.valid_percentage = 0
 
-  def increase_total_answers(self):
+  def increase_answer(self, is_valid):
     self.total_answers += 1
+    if is_valid:
+      self.valid_answers += 1
+    self.calculate_valid_percentage()
 
-  def increase_valid_ansers(self):
-    self.valid_answers += 1
-
-  def calculate_result(self):
-    valid = str(self.valid_answers) + " / " + str(self.total_answers)
-    percentage = self.valid_answers / self.total_answers * 100 if self.total_answers > 0 else 0
-    return valid + " -> " + str(int(percentage)) + "% de aciertos"
+  def calculate_valid_percentage(self):
+    if self.total_answers <= 0:
+      self.valid_percentage = 0
+    self.valid_percentage = int(self.valid_answers / self.total_answers * 100)
